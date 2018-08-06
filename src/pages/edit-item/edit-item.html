@@ -1,0 +1,31 @@
+<!--
+  Generated template for the EditItemPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center> data?.title </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Title</ion-label>
+      <ion-input [(ngModel)]="data.title" placeholder="Item Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-textarea [(ngModel)]="data.content" placeholder="Item Description"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button full (click)="updateItem(data)">Update Item</button>
+  <button ion-button full (click)="removeItem(data)">Remove Item</button>
+</ion-content>

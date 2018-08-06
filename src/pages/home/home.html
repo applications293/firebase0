@@ -1,0 +1,50 @@
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>Products List</ion-title>
+    <ion-buttons end>
+      <button navPush="AddItemPage" ion-button>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+   <!-- <ion-list-header text-center>
+      Item List
+    </ion-list-header>
+```-->
+    <ion-item *ngFor="let item of shopList | async" 
+    
+    (click)="updateItem(data)"> <!-- [navParams]="{item:item}"-->
+      {{ item?.title }}
+    </ion-item>
+  </ion-list>
+  <button ion-button block full (click)="next()">Add Item</button>
+
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of shopList | async">
+      <ion-item >
+          {{ item?.title }}
+      </ion-item>
+      <ion-item-options side="rigth">
+        <button ion-button (click)="updateItem(data)">Edit</button>
+        <button ion-button color="danger" (click)="removeItem(data)">
+            <ion-icon name="trash"></ion-icon>
+            Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
